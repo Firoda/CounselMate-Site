@@ -102,6 +102,7 @@ header {
   font-weight: 800;
   background: linear-gradient(to right, #60a5fa, #a78bfa);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.5px;
 }
@@ -138,6 +139,7 @@ header {
   margin-bottom: 1.5rem;
   background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -169,6 +171,63 @@ header {
   transform: translateY(-2px);
   text-decoration: none;
   box-shadow: 0 6px 20px 0 rgba(59, 130, 246, 0.5);
+}
+
+/* Store Buttons */
+.store-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.store-badge {
+  display: flex;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1.2rem;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.store-badge:hover {
+  transform: translateY(-3px);
+  text-decoration: none;
+  box-shadow: 0 6px 20px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.store-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+}
+
+.store-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: 'Inter', sans-serif;
+}
+
+.store-small {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  line-height: 1;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+}
+
+.store-large {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-top: 2px;
 }
 
 /* Glassmorphism Cards */
