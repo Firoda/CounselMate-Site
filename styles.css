@@ -179,33 +179,36 @@ header {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .store-badge {
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: #000;
   color: #fff;
-  border-radius: var(--radius-md);
-  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  padding: 6px 16px;
   box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.3);
   transition: var(--transition);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  width: 160px;
+  height: 52px;
 }
 
 .store-badge:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   text-decoration: none;
   box-shadow: 0 6px 20px 0 rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: #fff;
   color: #fff;
 }
 
 .store-icon {
-  width: 28px;
-  height: 28px;
-  margin-right: 12px;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 
 .store-text {
@@ -213,21 +216,21 @@ header {
   flex-direction: column;
   align-items: flex-start;
   font-family: 'Inter', sans-serif;
+  margin-top: -2px;
 }
 
 .store-small {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   text-transform: uppercase;
-  line-height: 1;
-  opacity: 0.8;
-  letter-spacing: 0.5px;
+  line-height: 1.2;
+  opacity: 0.9;
+  letter-spacing: 0.2px;
 }
 
 .store-large {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 600;
   line-height: 1.1;
-  margin-top: 2px;
 }
 
 /* Glassmorphism Cards */
@@ -266,6 +269,20 @@ header {
   margin-bottom: 1rem;
   font-size: 1.5rem;
   color: #e2e8f0;
+}
+
+.doc-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  color: #cbd5e1;
+}
+
+.doc-content h4 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #94a3b8;
 }
 
 .doc-content p {
