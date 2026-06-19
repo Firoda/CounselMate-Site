@@ -3,51 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CounselMate - Your Legal Application Assistant</title>
-    <meta name="description" content="CounselMate helps you manage daily cause lists, legal notifications, and your tracked cases effortlessly.">
+    <title>CounselMate — Stay Ahead of Every Hearing</title>
+    <meta name="description" content="CounselMate automatically tracks cause lists, live court status, and case documents for advocates in Rajasthan — so you never miss a hearing.">
+    <meta name="theme-color" content="#0a0e1a">
+
+    <meta property="og:title" content="CounselMate — Stay Ahead of Every Hearing">
+    <meta property="og:description" content="The live cause list and case tracking app built for advocates in Rajasthan.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="icon" href="data:,">
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+        }
+    }
+    </script>
 </head>
 <body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header>
         <div class="container nav-content">
             <a href="index.html" class="logo">CounselMate</a>
             <nav class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="#features">Features</a>
+                <a href="#scope">Coverage</a>
                 <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="app-ads.txt" target="_blank">app-ads.txt</a>
             </nav>
         </div>
     </header>
 
-    <main class="container hero">
-        <div class="glass-card">
-            <h1>Stay Ahead of the Court</h1>
-            <p>CounselMate is the modern platform built for professionals to efficiently track cause lists, live statuses, and court sessions all from your mobile device.</p>
-            <div class="store-buttons">
-                <a href="https://apps.apple.com/in/app/counselmate/id6758905720" target="_blank" class="store-badge apple-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="store-icon"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-                    <div class="store-text">
-                        <span class="store-small">Download on the</span>
-                        <span class="store-large">App Store</span>
+    <main id="main">
+
+        <!-- HERO -->
+        <section class="hero" id="hero">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <canvas id="hero-canvas" aria-hidden="true"></canvas>
+            <div class="container hero-content reveal" data-reveal>
+                <p class="eyebrow">For Advocates in Rajasthan</p>
+                <h1>Stay Ahead of<br><span class="gradient-text">Every Hearing</span></h1>
+                <p class="hero-lede">CounselMate automatically tracks your cause lists, live court status, and case documents — so you never lose track of a hearing again.</p>
+                <div class="cta-row">
+                    <div class="store-buttons">
+                        <a href="https://apps.apple.com/in/app/counselmate/id6758905720" target="_blank" rel="noopener" class="store-badge apple-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="store-icon"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                            <div class="store-text">
+                                <span class="store-small">Download on the</span>
+                                <span class="store-large">App Store</span>
+                            </div>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.anonymous.counselmate" target="_blank" rel="noopener" class="store-badge play-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="store-icon"><path fill="currentColor" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+                            <div class="store-text">
+                                <span class="store-small">GET IT ON</span>
+                                <span class="store-large">Google Play</span>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="#" target="_blank" class="store-badge play-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="store-icon"><path fill="currentColor" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
-                    <div class="store-text">
-                        <span class="store-small">GET IT ON</span>
-                        <span class="store-large">Google Play</span>
-                    </div>
-                </a>
+                    <p class="free-note"><span class="dot-live" aria-hidden="true"></span>Free to download</p>
+                </div>
             </div>
-        </div>
+            <div class="scroll-cue" aria-hidden="true">
+                <span></span>
+                <p>Scroll</p>
+            </div>
+        </section>
+
+        <!-- NARRATIVE BRIDGE -->
+        <section class="narrative">
+            <div class="container">
+                <p class="narrative-line reveal" data-reveal>Every advocate knows the routine —</p>
+                <p class="narrative-line narrative-strike reveal" data-reveal>refreshing court websites, scrolling endless PDFs, hoping you didn't miss your case being called.</p>
+                <p class="narrative-line narrative-highlight reveal" data-reveal>CounselMate replaces that grind with one live, intelligent dashboard.</p>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features" id="features">
+            <div class="container">
+                <p class="section-eyebrow reveal" data-reveal>What it does</p>
+                <h2 class="section-title reveal" data-reveal>Built around how advocates actually work</h2>
+            </div>
+
+            <article class="feature-row reveal" data-reveal>
+                <div class="container feature-grid">
+                    <div class="feature-text">
+                        <span class="feature-index">01</span>
+                        <h3>Watch your case move, live</h3>
+                        <p>The Live Display Board mirrors real-time court proceedings, so you can see exactly when your case is called — without sitting glued to a courtroom screen.</p>
+                    </div>
+                    <div class="feature-visual tilt-card" data-tilt>
+                        <div class="tilt-card-inner">
+                            <svg viewBox="0 0 24 24" class="feature-icon"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7" opacity="0.5"/><circle cx="12" cy="12" r="10.5" opacity="0.2"/></svg>
+                            <div class="visual-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feature-row reverse reveal" data-reveal>
+                <div class="container feature-grid">
+                    <div class="feature-text">
+                        <span class="feature-index">02</span>
+                        <h3>Today's cause list, already on your phone</h3>
+                        <p>Daily and weekly cause lists are fetched automatically — no more manually searching court websites every morning before you head out.</p>
+                    </div>
+                    <div class="feature-visual tilt-card" data-tilt>
+                        <div class="tilt-card-inner">
+                            <svg viewBox="0 0 24 24" class="feature-icon"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="14" y2="18"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feature-row reveal" data-reveal>
+                <div class="container feature-grid">
+                    <div class="feature-text">
+                        <span class="feature-index">03</span>
+                        <h3>Know the moment something changes</h3>
+                        <p>Smart Case Tracking watches your matters for status updates and sends instant notifications, so you're never the last to know.</p>
+                    </div>
+                    <div class="feature-visual tilt-card" data-tilt>
+                        <div class="tilt-card-inner">
+                            <svg viewBox="0 0 24 24" class="feature-icon"><path d="M12 3a5 5 0 0 0-5 5v3.5L5 16h14l-2-4.5V8a5 5 0 0 0-5-5z"/><path d="M9.5 19a2.5 2.5 0 0 0 5 0"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feature-row reverse reveal" data-reveal>
+                <div class="container feature-grid">
+                    <div class="feature-text">
+                        <span class="feature-index">04</span>
+                        <h3>Find any case in seconds</h3>
+                        <p>Advanced Search lets you pull up older cases using multiple criteria, turning a five-minute hunt into a five-second lookup.</p>
+                    </div>
+                    <div class="feature-visual tilt-card" data-tilt>
+                        <div class="tilt-card-inner">
+                            <svg viewBox="0 0 24 24" class="feature-icon"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.3" y1="15.3" x2="21" y2="21"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feature-row reveal" data-reveal>
+                <div class="container feature-grid">
+                    <div class="feature-text">
+                        <span class="feature-index">05</span>
+                        <h3>Orders and judgments, one tap away</h3>
+                        <p>Review full case details and download or read PDF orders and judgments directly inside the app — no inbox digging, no separate downloads folder.</p>
+                    </div>
+                    <div class="feature-visual tilt-card" data-tilt>
+                        <div class="tilt-card-inner">
+                            <svg viewBox="0 0 24 24" class="feature-icon"><path d="M7 3h7l4 4v14H7z"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feature-row reverse reveal" data-reveal>
+                <div class="container feature-grid">
+                    <div class="feature-text">
+                        <span class="feature-index">06</span>
+                        <h3>Plan more than just today</h3>
+                        <p>Multi-Date Cause Lists let you check listings across different dates, so you can prepare for the rest of the week, not just the morning ahead.</p>
+                    </div>
+                    <div class="feature-visual tilt-card" data-tilt>
+                        <div class="tilt-card-inner">
+                            <svg viewBox="0 0 24 24" class="feature-icon"><rect x="4" y="5" width="16" height="15" rx="1.5"/><line x1="4" y1="9.5" x2="20" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feature-row reveal" data-reveal>
+                <div class="container feature-grid">
+                    <div class="feature-text">
+                        <span class="feature-index">07</span>
+                        <h3>Organized the way courts work</h3>
+                        <p>Case Sorting lets you order your matters by court number, mirroring the way listings actually run on the ground.</p>
+                    </div>
+                    <div class="feature-visual tilt-card" data-tilt>
+                        <div class="tilt-card-inner">
+                            <svg viewBox="0 0 24 24" class="feature-icon"><line x1="5" y1="6" x2="13" y2="6"/><line x1="5" y1="12" x2="17" y2="12"/><line x1="5" y1="18" x2="10" y2="18"/><polyline points="18 14 18 20 21 17"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- SCOPE / HONESTY SECTION -->
+        <section class="scope" id="scope">
+            <div class="container scope-card reveal" data-reveal>
+                <p class="section-eyebrow">Coverage</p>
+                <h2>Built for Rajasthan's courts</h2>
+                <p>CounselMate's cause lists and live status tracking currently cover courts in Rajasthan. We're advocates building for advocates — starting where we practice, with more coverage on the roadmap.</p>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="final-cta">
+            <div class="container final-cta-content reveal" data-reveal>
+                <h2>Your next hearing is already on the list.</h2>
+                <p>Join the advocates using CounselMate to stop guessing and start tracking.</p>
+                <div class="store-buttons">
+                    <a href="https://apps.apple.com/in/app/counselmate/id6758905720" target="_blank" rel="noopener" class="store-badge apple-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="store-icon"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                        <div class="store-text">
+                            <span class="store-small">Download on the</span>
+                            <span class="store-large">App Store</span>
+                        </div>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.anonymous.counselmate" target="_blank" rel="noopener" class="store-badge play-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="store-icon"><path fill="currentColor" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+                        <div class="store-text">
+                            <span class="store-small">GET IT ON</span>
+                            <span class="store-large">Google Play</span>
+                        </div>
+                    </a>
+                </div>
+                <p class="free-note"><span class="dot-live" aria-hidden="true"></span>Free to download</p>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <div class="container">
-            &copy; 2026 CounselMate. All rights reserved.
+        <div class="container footer-content">
+            <span>&copy; 2026 CounselMate. All rights reserved.</span>
+            <nav class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="app-ads.txt" target="_blank">app-ads.txt</a>
+            </nav>
         </div>
     </footer>
 
+    <script type="module" src="app.js"></script>
 </body>
 </html>
