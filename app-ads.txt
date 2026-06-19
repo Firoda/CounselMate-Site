@@ -1,3 +1,1 @@
-# CounselMate app-ads.txt
-# Please replace the pub-XXXXXXXXXXXXXXXX with your actual Google AdMob/AdSense publisher ID
 google.com, pub-5191579326055734, DIRECT, f08c47fec0942fa0
